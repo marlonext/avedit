@@ -1,0 +1,52 @@
+// mediaPlayer.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (mediaPlayer.tlb) that will become a resource in
+// mediaPlayer.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(4078D9F8-F4E0-4959-B92F-4A7B94986C42), version(1.0),
+  control ]
+library mediaPlayerLib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CmediaPlayerCtrl
+	[ 
+		uuid(82844913-35E0-41F9-86FD-C98090577164)	
+	]
+	dispinterface _DmediaPlayer
+	{
+		properties:
+		methods:
+      [id(1)] VARIANT_BOOL StartEdit(BSTR sourceName/*, BSTR sourceAlias*/);
+      [id(2)] VARIANT_BOOL DownLoad(BSTR sourceName);
+  };
+
+	//  Event dispatch interface for CmediaPlayerCtrl
+
+	[ 
+		uuid(47973F78-02E1-40CF-8FCA-22CAFB4A6658)	
+	]
+	dispinterface _DmediaPlayerEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+      [id(DISPID_CLICK)] void Click(void);
+  };
+
+	//  Class information for CmediaPlayerCtrl
+	[
+		uuid(52768F24-96ED-4DD0-BB06-D82A6E1C3F39)
+	]
+	coclass mediaPlayer
+	{
+		[default] dispinterface _DmediaPlayer;
+		[default, source] dispinterface _DmediaPlayerEvents;
+	};
+
+};

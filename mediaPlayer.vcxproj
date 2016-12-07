@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1B34956F-1F2F-4F84-A0AA-C6C366E51886}</ProjectGuid>
+    <RootNamespace>mediaPlayer</RootNamespace>
+    <Keyword>MFCActiveXProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>false</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetExt>.ocx</TargetExt>
+    <IncludePath>$(VCInstallDir)PlatformSDK\include;C:\Program Files\Microsoft SDKs\Windows\v7.0A\Include;C:\ACE_wrappers;H:\Program Files\MFC\Xtreme ToolkitPro v15.2.1\Source;C:\Program Files\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCInstallDir)PlatformSDK\lib;C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib;C:\ACE_wrappers\lib;H:\Program Files\MFC\Xtreme ToolkitPro v15.2.1\Lib\vc80;C:\Program Files\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(VCInstallDir)PlatformSDK\bin;$(VSInstallDir)\SDK\v2.0\bin;C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin;C:\ACE_wrappers\bin;H:\Program Files\MFC\Xtreme ToolkitPro v15.2.1\Bin\vc80;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.ocx</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./libvlc_include;./plugins</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>.\mediaPlayer.def</ModuleDefinitionFile>
+      <OutputFile>$(OutDir)$(ProjectName).ocx</OutputFile>
+      <RegisterOutput>false</RegisterOutput>
+      <AdditionalLibraryDirectories>./libvlc_lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libvlc.lib;libvlccore.lib;Ws2_32.lib;</AdditionalDependencies>
+      <PerUserRedirection>true</PerUserRedirection>
+      <OptimizeReferences>false</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)mediaPlayer.tlb</TypeLibraryName>
+      <HeaderFileName>$(ProjectName)idl.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./libvlc_include;./plugins;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
+      <ModuleDefinitionFile>.\mediaPlayer.def</ModuleDefinitionFile>
+      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <RegisterOutput>false</RegisterOutput>
+      <AdditionalDependencies>libvlc.lib;libvlccore.lib;Ws2_32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./libvlc_lib;</AdditionalLibraryDirectories>
+      <PerUserRedirection>false</PerUserRedirection>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)mediaPlayer.tlb</TypeLibraryName>
+      <HeaderFileName>$(ProjectName)idl.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <CustomBuildStep />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="icon1.ico" />
+    <None Include="icon2.ico" />
+    <None Include="mediaPlayer.def" />
+    <None Include="mediaPlayerCtrl.bmp" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ActivDoc.cpp" />
+    <ClCompile Include="BackwardButton.cpp" />
+    <ClCompile Include="cs\editCs.cxx" />
+    <ClCompile Include="cs\editCsSkt.cxx" />
+    <ClCompile Include="cs\lowSys.cxx" />
+    <ClCompile Include="DownLoadDialog.cpp" />
+    <ClCompile Include="EditStatueFile.cpp" />
+    <ClCompile Include="EditTask.cpp" />
+    <ClCompile Include="EditTaskListCtrl.cpp" />
+    <ClCompile Include="FileEditDialog.cpp" />
+    <ClCompile Include="FilePreView.cpp" />
+    <ClCompile Include="ForwardButton.cpp" />
+    <ClCompile Include="ImagePreviewDialog.cpp" />
+    <ClCompile Include="ImagePrview.cpp" />
+    <ClCompile Include="Ini.cpp" />
+    <ClCompile Include="ListenThread.cpp" />
+    <ClCompile Include="LoginDialog.cpp" />
+    <ClCompile Include="MainDialog.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="mediaPlayer.cpp" />
+    <ClCompile Include="mediaPlayerCtrl.cpp" />
+    <ClCompile Include="MediaPlayerDialog.cpp" />
+    <ClCompile Include="mediaPlayerDoc.cpp" />
+    <ClCompile Include="mediaPlayerPropPage.cpp" />
+    <ClCompile Include="mediaPlayerView.cpp" />
+    <ClCompile Include="msjexhnd.cpp" />
+    <ClCompile Include="PictureCtrl.cpp" />
+    <ClCompile Include="PlayPauseButton.cpp" />
+    <ClCompile Include="PreView.cpp" />
+    <ClCompile Include="ProgressCtrlView.cpp" />
+    <ClCompile Include="SAStatusLog.cpp" />
+    <ClCompile Include="ScopeLock.cpp" />
+    <ClCompile Include="SettingDialog.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StopButton.cpp" />
+    <ClCompile Include="TaskListDialog.cpp" />
+    <ClCompile Include="TimeEdit.cpp" />
+    <ClCompile Include="TimerShaft.cpp" />
+    <ClCompile Include="TimeshaftFile.cpp" />
+    <ClCompile Include="URL.cpp" />
+    <ClCompile Include="VLCPlayer.cpp" />
+    <ClCompile Include="VLCPlayerImpl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ActivDoc.h" />
+    <ClInclude Include="BackwardButton.h" />
+    <ClInclude Include="cs\editCs.h" />
+    <ClInclude Include="cs\editCsSkt.h" />
+    <ClInclude Include="cs\lowSys.h" />
+    <ClInclude Include="DownLoadDialog.h" />
+    <ClInclude Include="EditStatueFile.h" />
+    <ClInclude Include="EditTask.h" />
+    <ClInclude Include="EditTaskListCtrl.h" />
+    <ClInclude Include="FileEditDialog.h" />
+    <ClInclude Include="FilePreView.h" />
+    <ClInclude Include="ForwardButton.h" />
+    <ClInclude Include="ImagePreviewDialog.h" />
+    <ClInclude Include="ImagePrview.h" />
+    <ClInclude Include="Ini.h" />
+    <ClInclude Include="ListenThread.h" />
+    <ClInclude Include="LoginDialog.h" />
+    <ClInclude Include="MainDialog.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="mediaPlayer.h" />
+    <ClInclude Include="mediaPlayerCtrl.h" />
+    <ClInclude Include="MediaPlayerDialog.h" />
+    <ClInclude Include="mediaPlayerDoc.h" />
+    <ClInclude Include="mediaPlayerPropPage.h" />
+    <ClInclude Include="mediaPlayerView.h" />
+    <ClInclude Include="msjexhnd.h" />
+    <ClInclude Include="PictureCtrl.h" />
+    <ClInclude Include="PlayPauseButton.h" />
+    <ClInclude Include="PreView.h" />
+    <ClInclude Include="ProgressCtrlView.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SAStatusLog.h" />
+    <ClInclude Include="ScopeLock.h" />
+    <ClInclude Include="SettingDialog.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StopButton.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TaskListDialog.h" />
+    <ClInclude Include="TimeEdit.h" />
+    <ClInclude Include="TimerShaft.h" />
+    <ClInclude Include="TimeshaftFile.h" />
+    <ClInclude Include="URL.h" />
+    <ClInclude Include="VLCPlayer.h" />
+    <ClInclude Include="VLCPlayerImpl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mediaPlayer.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="mediaPlayer.idl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="mediaPlayer.rc" _x007B_E23FE9C6-778E-49D4-B537-38FCDE4887D8_x007D_="CVlcplugin1" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
